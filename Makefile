@@ -1,10 +1,5 @@
 CFLAGS=-Wall -g
 
-all: ex1 ex3
-
 clean:
-	rm -f ex1
-	rm -f ex3
-	rm -r *.dSYM
-
-
+	@rm -rf *.dSYM
+	@ls | grep -v .c | grep -v Makefile | xargs rm
