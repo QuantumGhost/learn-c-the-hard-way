@@ -43,6 +43,13 @@ int main(int argc, char *argv[]) {
     struct Person *frank = Person_create(
             "Frank Blank", 20, 72, 180);
 
+    // print them out and where they are in memory
+    printf("Joe is at memory location %p:\n", joe);
+    Person_print(joe);
+
+    printf("Frank is at memory location %p:\n", frank);
+    Person_print(frank);
+    
     joe->age += 20;
     joe->height -= 2;
     joe->weight += 40;
