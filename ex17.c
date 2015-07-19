@@ -88,7 +88,7 @@ void Database_create(struct Connection *conn) {
 
     for (i = 0; i < MAX_ROWS; i++) {
         // make a prototype to initialize it
-        struct Address addr = {.id = 1, .set = 0};
+        struct Address addr = {.id = i, .set = 0};
         // then just assign it
         conn->db->rows[i] = addr;
     }
@@ -101,14 +101,16 @@ void Database_set(
     if (addr->set) die("Already set, delete it first");
 
     addr->set = 1;
-    // WARNING: bug, read the "How To Fix It" and fix this
+
     char *res = strncpy(addr->name, name, MAX_DATA);
+    addr->name[MAX_DATA - 1] = '\0';
     // demostrate the strncpy bug
     if (!res) die("Name copy failed");
 
     res = strncpy(addr->email, email, MAX_DATA);
+    addr->email[MAX_DATA - 1] = '\0';
 
-    if (res) die("Email copy failed");
+    if (!res) die("Email copy failed");
 }
 
 void Database_get(struct Connection *conn, int id) {
