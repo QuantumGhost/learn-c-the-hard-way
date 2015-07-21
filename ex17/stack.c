@@ -54,6 +54,7 @@ int Stack_pop(struct Stack *stack) {
 }
 
 void Stack_del(struct Stack *stack) {
+    // delete a stack and all its nodes
     while (stack->head != NULL) {
         Stack_pop(stack);
     };
