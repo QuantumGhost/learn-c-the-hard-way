@@ -46,17 +46,37 @@ void Stack_push(struct Stack *stack, int x) {
 int Stack_pop(struct Stack *stack) {
     int x = stack->head->value;
 
+    struct Node *node = stack->head;
     stack->head = stack->head->next;
     stack->depth -= 1;
+    free(node);
     return x;
 }
 
 void Stack_del(struct Stack *stack) {
-    
+    while (stack->head != NULL) {
+        Stack_pop(stack);
+    };
+
+    free(stack);
 }
 
 
 int main(int argc, char *argv[]) {
+    struct Stack *stack = Stack_new();
+
+    assert(stack->depth == 0);
+
+    Stack_push(stack, 1);
+    assert(stack->depth == 1);
+    Stack_push(stack, 2);
+    assert(stack->depth == 2);
+
+    assert(Stack_pop(stack) == 2);
+    assert(Stack_pop(stack) == 1);
+    assert(stack->depth == 0);
+
+    Stack_del(stack);
     return 0;
 }
 
