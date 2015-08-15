@@ -6,4 +6,5 @@ ex19: object.o
 
 clean:
 	rm ex19
+	rm object.o
 
