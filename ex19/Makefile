@@ -2,9 +2,9 @@ CLFAGS=-Wall -g
 
 all: ex19
 
-ex19: object.o
+ex19: object.o game.o
 
 clean:
-	rm ex19
-	rm object.o
+	rm -f ex19
+	rm -f *.o
 
