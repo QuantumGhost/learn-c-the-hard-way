@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "ex19.h"
 #include "game.h"
+#include "object.h"
+
 
 int Monster_attack(void *self, int damage) {
     Monster *monster = self;
@@ -25,7 +26,7 @@ int Monster_init(void *self) {
     return 1;
 }
 
-const extern Object MonsterProto = {
+const Object MonsterProto = {
     .init = Monster_init,
     .attack = Monster_attack
 };
@@ -73,7 +74,7 @@ int Room_attack(void *self, int damage) {
     }
 }
 
-const extern Object RoomProto = {
+const Object RoomProto = {
     .move = Room_move,
     .attack = Room_attack
 };
@@ -129,7 +130,7 @@ int Map_init(void *self) {
     return 1;
 }
 
-const extern Object MapProto = {
+const Object MapProto = {
     .init = Map_init,
     .move = Map_move,
     .attack = Map_attack
