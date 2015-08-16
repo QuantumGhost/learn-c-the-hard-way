@@ -48,6 +48,10 @@ int *bubble_sort(int *numbers, int count, compare_cb cmp) {
     return target;
 }
 
+int *merge_sort(int *numbers, int count, compare_cb cmp) {
+    return 0;
+}
+
 int sorted_order(int a, int b) {
     return a - b;
 }
