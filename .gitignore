@@ -36,3 +36,5 @@ tags
 # Debug files
 *.dSYM/
 
+# temp files
+temp.c
